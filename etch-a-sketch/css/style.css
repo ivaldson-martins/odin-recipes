@@ -1,12 +1,25 @@
+html {
+    background-color: grey;
+}
 
+.title {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    color: black;
+}
 #container {
     height: 600px;
     width: 600px;
-    background-color: aqua;
+    margin: auto;
+    background-color: white;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
 }
 .change-background-color-on-hover{
-    background-color: red;
+    background-color: black;
+}
+.button-style {
+    float: left;
+    font-size: 30px;
 }
