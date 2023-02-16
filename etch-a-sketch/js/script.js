@@ -1,4 +1,11 @@
 const container = document.querySelector('#container');
+const buttonSquareSize = document.querySelector('#button-square-size');
+
+
+buttonSquareSize.addEventListener('click', () => {
+    let promptResult = prompt('Write the number of squares per side.(maximum of 100)');
+    console.log(promptResult);
+});
 
 /*
 função para detectar se o mouse esta'sendo presionado
