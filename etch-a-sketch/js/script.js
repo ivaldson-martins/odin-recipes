@@ -3,8 +3,7 @@ const buttonSquareSize = document.querySelector('#button-square-size');
 const rangeSquareSize = document.querySelector('#range-square');
 const rangeSquareValue = document.querySelector('#range-value');
 rangeSquareSize.value = 16;
-rangeSquareValue.textContent = 16;
-
+rangeSquareValue.textContent = 'Grid edge size: 16';
 
 function drawDivs(numberOfDivs){
     let divSize = '1fr ';
@@ -39,9 +38,11 @@ function drawnColors() {
     
         })
     });
-}
+};
+
 drawDivs(16);
 drawnColors();
+
 buttonSquareSize.addEventListener('click', () => {
     let promptResult = prompt('Write the number of squares per side.(maximum of 100)');
     container.replaceChildren();
@@ -51,7 +52,7 @@ buttonSquareSize.addEventListener('click', () => {
 
 
 rangeSquareSize.addEventListener('input', (e) => {
-    rangeSquareValue.textContent = rangeSquareSize.value;
+    rangeSquareValue.textContent = 'Grid edge size: ' + rangeSquareSize.value;
 });
 
 rangeSquareSize.addEventListener('mouseup', (e) => {
