@@ -1,5 +1,9 @@
 const container = document.querySelector('#container');
 const buttonSquareSize = document.querySelector('#button-square-size');
+const rangeSquareSize = document.querySelector('#range-square');
+const rangeSquareValue = document.querySelector('#range-value');
+rangeSquareSize.value = 16;
+rangeSquareValue.textContent = 16;
 
 
 function drawDivs(numberOfDivs){
@@ -45,9 +49,14 @@ buttonSquareSize.addEventListener('click', () => {
     drawnColors();
 });
 
-const rangeSquareSize = document.querySelector('#range-square');
-const rangeSquareValue = document.querySelector('#range-value');
+
 rangeSquareSize.addEventListener('input', (e) => {
     rangeSquareValue.textContent = rangeSquareSize.value;
 });
-console.log(rangeSquareValue.textContent);
+
+rangeSquareSize.addEventListener('mouseup', (e) => {
+    container.replaceChildren();
+    drawDivs(rangeSquareSize.value);
+    drawnColors();
+});
+
