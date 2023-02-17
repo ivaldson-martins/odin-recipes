@@ -45,3 +45,9 @@ buttonSquareSize.addEventListener('click', () => {
     drawnColors();
 });
 
+const rangeSquareSize = document.querySelector('#range-square');
+const rangeSquareValue = document.querySelector('#range-value');
+rangeSquareSize.addEventListener('input', (e) => {
+    rangeSquareValue.textContent = rangeSquareSize.value;
+});
+console.log(rangeSquareValue.textContent);

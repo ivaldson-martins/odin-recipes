@@ -9,12 +9,18 @@
     <script defer src="js/script.js"></script>
 </head>
 <body>
-
+    
     <h1 class="title">Etch-a-sketch</h1>
     <div id="flexbox-container">
-        <button id="button-square-size" class="button-style">Grid size</button>
-        <div id="container"></div>   
+        <div id="options">
+            <button id="button-square-size" class="button-style">Grid size</button>
+            <input id="range-square" type="range" min="0" max="100" value="0">
+            <p id="range-value"></p>
+        </div> 
+        <div id="container"></div> 
+        
     </div>
+    
 
     
 </body>
