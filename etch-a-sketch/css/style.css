@@ -1,25 +1,33 @@
 html {
     background-color: grey;
 }
-
 .title {
+    font-size: 70px;
     text-align: center;
     margin: auto;
+    margin-bottom: 20px;
     width: 100%;
     color: black;
-}
-#container {
-    height: 600px;
-    width: 600px;
-    margin: auto;
-    background-color: white;
-    display: grid;
-
 }
 .change-background-color-on-hover{
     background-color: black;
 }
+#flexbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+    max-width: 1000px;
+    margin: auto;
+}
+#container {
+    height: 500px;
+    width: 500px;
+    background-color: white;
+    display: grid;
+    flex-shrink: 0;
+}
 .button-style {
-    float: left;
+    width: 200px;
     font-size: 30px;
 }
