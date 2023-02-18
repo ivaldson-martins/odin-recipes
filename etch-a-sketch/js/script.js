@@ -2,6 +2,8 @@ const container = document.querySelector('#container');
 const buttonSquareSize = document.querySelector('#button-square-size');
 const rangeSquareSize = document.querySelector('#range-square');
 const rangeSquareValue = document.querySelector('#range-value');
+const colorPicker = document.querySelector('#input-color')
+
 rangeSquareSize.value = 16;
 rangeSquareValue.textContent = 'Grid edge size: 16';
 
@@ -24,16 +26,19 @@ function drawnColors() {
     document.addEventListener('mouseup', () => {
         mousePresionado = false;
     });
+
     const divsInsideContainer = document.querySelectorAll('.blank');
     divsInsideContainer.forEach(div => {
     
         div.addEventListener('mousedown', () => {
             div.classList.add('change-background-color-on-hover');
+            div.style.backgroundColor = colorPicker.value;
         });
     
         div.addEventListener('mouseover', () => {
             if (mousePresionado){
                 div.classList.add('change-background-color-on-hover');
+                div.style.backgroundColor = colorPicker.value;
             };
     
         })
@@ -42,14 +47,6 @@ function drawnColors() {
 
 drawDivs(16);
 drawnColors();
-
-buttonSquareSize.addEventListener('click', () => {
-    let promptResult = prompt('Write the number of squares per side.(maximum of 100)');
-    container.replaceChildren();
-    drawDivs(promptResult);
-    drawnColors();
-});
-
 
 rangeSquareSize.addEventListener('input', (e) => {
     rangeSquareValue.textContent = 'Grid edge size: ' + rangeSquareSize.value;
@@ -61,3 +58,14 @@ rangeSquareSize.addEventListener('mouseup', (e) => {
     drawnColors();
 });
 
+/*
+container.style.backgroundColor = colorPicker.value;
+console.log(colorPicker.value);
+buttonSquareSize.addEventListener('click', () => {
+    let promptResult = prompt('Write the number of squares per side.(maximum of 100)');
+    container.replaceChildren();
+    drawDivs(promptResult);
+    drawnColors();
+});
+
+*/
