@@ -27,9 +27,16 @@ html {
     display: grid;
     flex-shrink: 0;
 }
-button {
+.options-bar {
     width: 200px;
-    font-size: 30px;
+    font-size: 15px;
+    margin-bottom: 30px;
+
+}
+.color-picker {
+    margin-bottom: 30px;
+    align-self: center;
+    
 }
 #options {
     display: flex;
