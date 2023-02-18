@@ -27,7 +27,14 @@ html {
     display: grid;
     flex-shrink: 0;
 }
-.button-style {
+button {
     width: 200px;
     font-size: 30px;
+}
+#options {
+    display: flex;
+    flex-direction: column;
+}
+p {
+    text-align: center;
 }
