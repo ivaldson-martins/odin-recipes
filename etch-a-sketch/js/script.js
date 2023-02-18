@@ -1,11 +1,15 @@
 const container = document.querySelector('#container');
-const buttonSquareSize = document.querySelector('#button-square-size');
+const buttonSquareSize = document.querySelector('#eraser-button');
 const rangeSquareSize = document.querySelector('#range-square');
 const rangeSquareValue = document.querySelector('#range-value');
 const colorPicker = document.querySelector('#input-color')
+const drawnButton = document.querySelector('#drawn-button')
 
-rangeSquareSize.value = 16;
-rangeSquareValue.textContent = 'Grid edge size: 16';
+rangeSquareValue.textContent = `Grid edge size: ${rangeSquareSize.value}`;
+
+function mouseIsPressed() {
+    
+};
 
 function drawDivs(numberOfDivs){
     let divSize = '1fr ';
@@ -18,6 +22,7 @@ function drawDivs(numberOfDivs){
         container.appendChild(div);
     }
 };
+
 function drawnColors() {
     let mousePresionado = false;
     document.addEventListener('mousedown', () => {
@@ -31,41 +36,56 @@ function drawnColors() {
     divsInsideContainer.forEach(div => {
     
         div.addEventListener('mousedown', () => {
-            div.classList.add('change-background-color-on-hover');
             div.style.backgroundColor = colorPicker.value;
         });
     
         div.addEventListener('mouseover', () => {
             if (mousePresionado){
-                div.classList.add('change-background-color-on-hover');
                 div.style.backgroundColor = colorPicker.value;
             };
     
         })
     });
-};
+}
+function eraseColors() {
+    let mousePresionado = false;
+    document.addEventListener('mousedown', () => {
+        mousePresionado = true;
+    });
+    document.addEventListener('mouseup', () => {
+        mousePresionado = false;
+    });
 
+    const divsInsideContainer = document.querySelectorAll('.blank');
+    divsInsideContainer.forEach(div => {
+    
+        div.addEventListener('mousedown', () => {
+            div.style.backgroundColor = "#ffffff";
+        });
+    
+        div.addEventListener('mouseover', () => {
+            if (mousePresionado){
+                div.style.backgroundColor = "#ffffff";
+            };
+    
+        })
+    });
+};
 drawDivs(16);
 drawnColors();
-
 rangeSquareSize.addEventListener('input', (e) => {
-    rangeSquareValue.textContent = 'Grid edge size: ' + rangeSquareSize.value;
-});
-
+        rangeSquareValue.textContent = `Grid edge size: ${rangeSquareSize.value}`;
+    });
 rangeSquareSize.addEventListener('mouseup', (e) => {
     container.replaceChildren();
     drawDivs(rangeSquareSize.value);
     drawnColors();
 });
 
-/*
-container.style.backgroundColor = colorPicker.value;
-console.log(colorPicker.value);
+
 buttonSquareSize.addEventListener('click', () => {
-    let promptResult = prompt('Write the number of squares per side.(maximum of 100)');
-    container.replaceChildren();
-    drawDivs(promptResult);
+    eraseColors();
+});
+drawnButton.addEventListener('click', () => {
     drawnColors();
 });
-
-*/
